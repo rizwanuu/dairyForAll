@@ -1,0 +1,42 @@
+.profileSwitchDiv {
+    display: flex;
+    width: 50%;
+    padding: 1rem;
+    margin: auto;
+    text-align: center;
+}
+.profileBtns {
+    width: 100%;
+    border: none;
+    background: white;
+    height: 3rem;
+}
+.profileComponentsDiv {
+    width: 50%;
+    padding: 0 1rem 3rem 1rem;
+    margin: auto;
+}
+/* public css */
+.publicMain {
+    background: white;
+    border-radius: 10px;
+    padding: 1rem;
+}
+.publicCard {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.publicImg {
+    width: 5rem;
+    height: 5rem;
+    margin-right: 1.5rem;
+}
+@media (max-width: 516px) {
+    .profileSwitchDiv {
+        width: 100%;
+    }
+    .profileComponentsDiv{
+        width: 100%;
+    }
+}

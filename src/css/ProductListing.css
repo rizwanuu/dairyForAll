@@ -1,0 +1,20 @@
+.addDiary{
+    width: 50%;
+    padding: 1rem;
+    margin: 3rem auto;
+    text-align: center;
+}
+.diaryImage{
+    margin-bottom: 1rem;
+    width: 100%;
+    height: 15rem;
+}
+p{
+    margin-bottom: .5rem;
+}
+.diaryIcon{
+    height: 5rem;
+    width: 5rem;
+    fill: #0d6efd;
+    cursor: pointer;
+}
