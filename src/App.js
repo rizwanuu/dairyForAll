@@ -6,6 +6,7 @@ import "./App.css";
 // import ProductDetails from "./containers/ProductDetails";
 import Login from "./containers/userRegistration/Login";
 import Profile from "./containers/Profile";
+import CreateNewDairy from "./containers/createNewDairy";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" exact component={ProductListing} />
           <Route path="/login" exact component={Login} />
           <Route path="/profile" exact component={Profile} />
+          <Route path="/createdairy" exact component={CreateNewDairy} />
           {/* <Route path="/product/:productId" component={ProductDetails} /> */}
           <Route>404 Not Found!</Route>
         </Switch>

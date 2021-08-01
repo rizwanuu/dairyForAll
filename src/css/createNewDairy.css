@@ -1,0 +1,29 @@
+.createDairy {
+    width: 50%;
+    margin: 1rem auto 3rem auto;
+    background: #ffffff;
+    box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+    padding: 40px 55px 1px 55px;
+    border-radius: 15px;
+    transition: all 0.3s;
+}
+.createDairyH3 {
+    text-align: center;
+    font-weight: bold;
+}
+.createDairySelect {
+    width: 100%;
+    height: 2.5rem;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid;
+    padding: 0 0.5rem;
+    font-size: 14px;
+    cursor: pointer;
+    color: gray;
+}
+@media (max-width: 792px) {
+    .createDairy {
+        width: 90% !important;
+    }
+}

@@ -23,7 +23,9 @@ const Header = () => {
       </Link>
       <div className="header">
         <div className="leftSide">
-          <button className="headerbtn">Diary's</button>
+          <Link to="/createdairy">
+            <button className="headerbtn">Create Diary's</button>
+          </Link>
           {/* <button className="headerbtn">Start <span className="hideText">a Project</span></button> */}
         </div>
 

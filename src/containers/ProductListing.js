@@ -6,6 +6,7 @@ import React from "react";
 import '../css/ProductListing.css';
 import diary from '../assest/diary.PNG';
 import { RiAddBoxFill } from 'react-icons/ri'
+import { Link } from "react-router-dom";
 
 const ProductPage = () => {
   // const products = useSelector((state) => state.allProducts.products);
@@ -37,7 +38,9 @@ const ProductPage = () => {
       <p>Create a Diary From</p>
       <p>Diary's tab or use the button  </p>
       <p>button below to start.</p>
-      <RiAddBoxFill className="diaryIcon" />
+      <Link to="/createdairy">
+        <RiAddBoxFill className="diaryIcon" />
+      </Link>
     </div>
   );
 };
