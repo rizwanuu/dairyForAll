@@ -24,8 +24,15 @@ const userSchema = new mongoose.Schema({
   email: String,
   password: String
 })
+const newDiarySchema = new mongoose.Schema({
+  title: String,
+  image: String,
+  category: String,
+  description: String
+})
 
 const User = new mongoose.model("User", userSchema)
+const CreateDiary = new mongoose.model("CreateDiary", newDiarySchema)
 
 //Routes
 app.post("/login", (req, res) => {
@@ -64,7 +71,29 @@ app.post("/register", (req, res) => {
       })
     }
   })
+})
 
+app.post("/creatediary", (req, res) => {
+  const { title, image, category, description } = req.body
+  console.log(req.body);
+  const diary = new CreateDiary({
+    title,
+    image,
+    category,
+    description
+  })
+  diary.save(err => {
+    if (err) {
+      res.send(err)
+    } else {
+      res.send({ message: "Successfully Diary Created", diary: diary })
+    }
+  })
+})
+app.get("/creatediary", (req, res) => {
+  CreateDiary.find((err, item) => {
+    res.send({item: item})
+  })
 })
 
 app.listen(9002, () => {

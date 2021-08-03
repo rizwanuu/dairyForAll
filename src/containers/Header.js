@@ -9,7 +9,7 @@ const Header = () => {
   const [showlogin, setShowLogin] = useState(false);
   const [showSignup, setShowSignup] = useState(false);
   const [user, setUserData] = useState({});
-  console.log(user)
+  // console.log(user)
   const handleSelect = (e) => {
     console.log(e.target.value);
     if (e.target.value === "logout") {

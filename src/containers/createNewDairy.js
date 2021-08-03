@@ -1,6 +1,33 @@
+import axios from 'axios';
+import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import '../css/createNewDairy.css';
 
 const CreateNewDairy = () => {
+    const history = useHistory();
+    const [newDiary, setNewDiary] = useState({
+        title: "",
+        image: "",
+        category: "",
+        description: ""
+    });
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        // console.log( name, value);
+        if (e.target.name === "image") {
+            setNewDiary({ ...newDiary, [name]: e.target.files[0]?.name });
+        } else {
+            setNewDiary({ ...newDiary, [name]: value });
+        }
+    }
+    const handleCreateDiary = (e) => {
+        e.preventDefault();
+        axios.post("http://localhost:9002/creatediary", newDiary).then((res) => {
+            alert(res.data.message);
+            //   setShowLogin(false);
+              history.push("/profile");
+        });
+    }
     return (
         <div className="createDairy">
             <form className="mb-5">
@@ -10,8 +37,8 @@ const CreateNewDairy = () => {
                     <input
                         type="text"
                         name="title"
-                        // value={user.title}
-                        // onChange={handleChange}
+                        value={newDiary.title}
+                        onChange={handleChange}
                         className="form-control"
                         placeholder="Enter title"
                     />
@@ -20,17 +47,16 @@ const CreateNewDairy = () => {
                     <label className="mb-1">Select image</label>
                     <input
                         type="file"
-                        name="title"
+                        name="image"
                         accept="image/*"
-                        // value={user.title}
-                        // onChange={handleChange}
+                        onChange={handleChange}
                         className="form-control"
                         placeholder="Enter title"
                     />
                 </div>
                 <div className="form-group mb-3">
                     <label className="mb-1">Select Category</label><br />
-                    <select className="createDairySelect" name="loginProfile" id="loginProfile" >
+                    <select className="createDairySelect" value={newDiary.category} onChange={handleChange} name="category" id="category" >
                         <option value="Public">Public</option>
                         <option value="Private">Private</option>
                     </select>
@@ -41,8 +67,8 @@ const CreateNewDairy = () => {
                     <textarea
                         type="text"
                         name="description"
-                        // value={user.description}
-                        // onChange={handleChange}
+                        value={newDiary.description}
+                        onChange={handleChange}
                         className="form-control"
                         placeholder="Enter description"
                     />
@@ -50,7 +76,7 @@ const CreateNewDairy = () => {
                 <button
                     type="submit"
                     className="btn btn-primary btn-lg btn-block w-100 btn-outline-light"
-                // onClick={handleLogin}
+                    onClick={handleCreateDiary}
                 >
                     Create Now
                 </button>
