@@ -5,27 +5,28 @@ import Private from './ProfileSubComponents/Private';
 import Public from './ProfileSubComponents/Public'
 import Scroes from './ProfileSubComponents/Scroes';
 const Profile = () => {
-    const [data, setData] = useState();
-    console.log(data);
-    const [loader, setLoder] = useState(false);
+    // const [data, setData] = useState();
+    // console.log(data);
+    // const [loader, setLoder] = useState(false);
     const [step1, setStep1] = useState(true);
     const [step2, setStep2] = useState(false);
     const [step3, setStep3] = useState(false);
-    useEffect(() => {
-        axios.get("http://localhost:9002/creatediary").then((res) => {
-            // console.log(res.data);
-            setData(res.data)
-            setLoder(false);
-            // setCreatedDiaryData(res.data.diary);
-            //   setShowLogin(false);
-        });
-        setLoder(true);
-    }, [])
+    // useEffect(() => {
+    //     axios.get("http://localhost:9002/creatediary").then((res) => {
+    //         setData(res.data)
+    //         setLoder(false);
+    //     });
+    //     setLoder(true);
+    // }, [])
     return (
         <div style={{ backgroundColor: "#CDD3DF" }}>
             <div className="profileSwitchDiv">
                 <button
-                    style={{ borderRadius: "10px 0 0 10px" }}
+                    style={{
+                        borderRadius: "10px 0 0 10px",
+                        backgroundColor: step1 ? "#0d6efd" : "white",
+                        color: step1 ? "white" : "black",
+                    }}
                     className="profileBtns"
                     onClick={() => {
                         setStep1(true);
@@ -36,6 +37,11 @@ const Profile = () => {
                 </button>
                 <button
                     className="profileBtns"
+                    style={{
+                        borderRadius: "0 10px 10px 0",
+                        backgroundColor: step2 ? "#0d6efd" : "white",
+                        color: step2 ? "white" : "black",
+                    }}
                     onClick={() => {
                         setStep1(false);
                         setStep2(true);
@@ -43,7 +49,7 @@ const Profile = () => {
                     }}
                 >Private
                 </button>
-                <button
+                {/* <button
                     style={{ borderRadius: "0 10px 10px 0" }}
                     className="profileBtns"
                     onClick={() => {
@@ -52,12 +58,12 @@ const Profile = () => {
                         setStep3(true);
                     }}
                 >Scroes
-                </button>
+                </button> */}
             </div>
             <div className="profileComponentsDiv">
-                {step1 && loader && <Public diaryData={data} />}
-                {step2 && <Private diaryData={data} />}
-                {step3 && <Scroes />}
+                {step1 && <Public />}
+                {step2 && <Private />}
+                {/* {step3 && <Scroes />} */}
             </div>
         </div>
     )

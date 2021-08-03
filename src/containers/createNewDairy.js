@@ -8,7 +8,7 @@ const CreateNewDairy = () => {
     const [newDiary, setNewDiary] = useState({
         title: "",
         image: "",
-        category: "",
+        category: "Public",
         description: ""
     });
     const handleChange = (e) => {
